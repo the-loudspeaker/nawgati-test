@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
+import 'package:flutter_rounded_progress_bar/rounded_progress_bar_style.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_rounded_progress_bar/flutter_rounded_progress_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,67 +49,118 @@ class _MyHomePageState extends State<MyHomePage> {
           leading:  IconButton(icon: const Icon(Icons.west), onPressed: (){},),
 
         ),
-        body: SingleChildScrollView(
+        body: Padding(
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: Stack(
-                    children: [
-                      SvgPicture.asset("assets/images/user.svg", height: 128, width: 128),
-                       const Positioned(
-                        bottom: 12,
-                        right: 12,
-                        child: CircleAvatar(
-                          radius: 15,
-                          backgroundColor: Colors.blue,
-                          child: Icon(Icons.edit, color: Color(0xFFFAFAFA), size: 16,)
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Jiggs"),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
-                          Text("Level"),
-                          Text("1")
-                        ],
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children:   [
-                          const Text("Completed Fueling profile"),
-                          LinearPercentIndicator(
-                            width: MediaQuery.of(context).size.width - 104,
-                            lineHeight: 8,
-                            percent: 0.47,
-                            progressColor: Colors.blue,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Stack(
+                        children: [
+                          SvgPicture.asset("assets/images/user.svg", height: 128, width: 128),
+                           const Positioned(
+                            bottom: 12,
+                            right: 12,
+                            child: CircleAvatar(
+                              radius: 15,
+                              backgroundColor: Colors.blue,
+                              child: Icon(Icons.edit, color: Color(0xFFFAFAFA), size: 16,)
+                            ),
                           ),
-                          const SizedBox(height: 8,)
                         ],
                       ),
-                      Column(
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text("Jiggs",
+                          style: GoogleFonts.roboto(
+                            fontSize: 27,
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.normal
+                          )),
+                    ),
+                    Container(
+                      height: 48,
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
-                          Text("Level"),
-                          Text("2")
+                        children: [
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                  "Level",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                      fontStyle: FontStyle.normal,
+                                      color: const Color(0xFF040404))
+                              ),
+                              Text(
+                                  "1",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                      fontStyle: FontStyle.normal,
+                                      color: const Color(0xFF040404))
+                              )
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children:   [
+                              Text(
+                                  "Completed Fueling profile",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                      fontStyle: FontStyle.normal,
+                                      color: const Color(0xFF8B8B8B))
+                              ),
+                              SizedBox(
+                                // width: MediaQuery.of(context).size.width - 120,
+                                width: 324,
+                                child: RoundedProgressBar(
+                                  height: 8,
+                                  style: RoundedProgressBarStyle(
+                                      backgroundProgress: const Color(0xFFECECEC),
+                                      borderWidth: 0,
+                                      widthShadow: 0),
+                                  borderRadius: BorderRadius.circular(8),
+                                  percent: 30,),
+                              )
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                  "Level",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                      fontStyle: FontStyle.normal,
+                                      color: const Color(0xFF040404))
+                              ),
+                              Text(
+                                  "2",
+                                  style: GoogleFonts.roboto(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                      fontStyle: FontStyle.normal,
+                                      color: const Color(0xFF040404))
+                              )
+                            ],
+                          ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8),
@@ -117,9 +170,23 @@ class _MyHomePageState extends State<MyHomePage> {
                       children:   [
                         Column(
                           children:  [
-                            const Text("Coins"),
+                            Text(
+                                "Coins",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 21,
+                                    fontWeight: FontWeight.w400,
+                                    fontStyle: FontStyle.normal,
+                                    color: const Color(0xFF939393))
+                            ),
                             SvgPicture.asset("assets/images/coin.svg", height: 42, width: 42),
-                            const Text("133"),
+                            Text(
+                                "133",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FontStyle.normal,
+                                    color: const Color(0xFF7C7C7C))
+                            ),
                           ],
                         ),
                         const VerticalDivider(
@@ -131,40 +198,70 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         Column(
                           children:  [
-                            const Text("Time Saved"),
+                            Text(
+                                "Time Saved",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 21,
+                                    fontWeight: FontWeight.w400,
+                                    fontStyle: FontStyle.normal,
+                                    color: const Color(0xFF939393))
+                            ),
                             SvgPicture.asset("assets/images/time.svg", height: 42, width: 42),
-                            const Text("1h 25m"),
+                            Text(
+                                "1h 25m",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FontStyle.normal,
+                                    color: const Color(0xFF7C7C7C))
+                            ),
                           ],
                         ),
                       ],
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Row(
-                    children: const [
-                      Text("vehicles"),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 100,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Row(children: _vehicleRadioButtons(vehicleList),),
-                      const SizedBox(
-                        width: 100,
-                        child: Center(
-                        child: FloatingActionButton(
-                          elevation: 2,
-                          onPressed: null,
-                          child: Icon(Icons.add),
-                        ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.only(left: 8),
+                      child: Text(
+                        "Vehicles",
+                        style: GoogleFonts.roboto(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w400,
+                            fontStyle: FontStyle.normal,
+                            color: const Color(0xFF343434))
+                      )),
+                    SizedBox(
+                      height: 100,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          Row(children: _vehicleRadioButtons(vehicleList),),
+                          const SizedBox(
+                            width: 100,
+                            child: Center(
+                              child: FloatingActionButton(
+                                elevation: 2,
+                                onPressed: null,
+                                child: Icon(Icons.add),
+                              ),
+                            ),
+                          )],
+                      ),
                     ),
-                      )],
-                  ),
+                  ],
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  width: double.infinity,
+                  child:  ElevatedButton(
+                    onPressed: null,
+                    style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.black)),
+                    child: Text("Fuel", style: const TextStyle(color: Colors.white).copyWith(fontSize: 16),)
+                  )
                 ),
               ],
             ),
@@ -177,7 +274,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List <Widget>_vehicleRadioButtons(List<String> vehicleList) {
     return List<Widget>.generate(vehicleList.length, (index) {
       return Container(
-        margin: const EdgeInsets.all(8),
+        margin: const EdgeInsets.fromLTRB(8, 8, 16, 8),
         width: 100,
         child: PhysicalShape(
           elevation: 2,
@@ -192,10 +289,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Text(
                 vehicleList[index],
-                // style: const TextStyle(
-                //   color: Colors.black,
-                //   fontSize: 20.0,
-                // ),
+                style: GoogleFonts.roboto(),
               ),
               SvgPicture.asset("assets/images/car.svg", height: 24, width: 24,)
             ],
