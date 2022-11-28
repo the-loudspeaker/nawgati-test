@@ -1,0 +1,4 @@
+{
+    "avdmanager.executable": "/var/home/raman/Android/Sdk/cmdline-tools/latest/bin/avdmanager",
+    "avdmanager.sdkManager": "/var/home/raman/Android/Sdk/cmdline-tools/latest/bin/sdkmanager"
+}
