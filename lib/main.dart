@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
 
         primarySwatch: Colors.blue,
+        primaryColor: const Color.fromRGBO(54, 164, 255, 1),
         backgroundColor: const Color(0xFFFAFAFA),
         scaffoldBackgroundColor: const Color(0xFFFAFAFA)
       ),
@@ -68,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         right: 12,
                         child: CircleAvatar(
                           radius: 15,
-                          backgroundColor: Colors.blue,
+                          backgroundColor: Color.fromRGBO(54, 164, 255, 1),
                           child: Icon(Icons.edit, color: Color(0xFFFAFAFA), size: 16,)
                         ),
                       ),
@@ -245,6 +246,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           width: 100,
                           child: Center(
                             child: FloatingActionButton(
+                              backgroundColor: const Color.fromRGBO(54, 164, 255, 1),
                               elevation: 2,
                               onPressed: () {},
                               child: const Icon(Icons.add),
@@ -304,7 +306,7 @@ class _MyHomePageState extends State<MyHomePage> {
               textGiven,
               style: GoogleFonts.roboto(),
             ),
-            SvgPicture.asset("assets/images/car.svg", height: 24, width: 24,)
+            SvgPicture.asset("assets/images/car.svg", height: 24, width: 24, color: const Color(0xff444444))
           ],
         ),
       ),
@@ -327,7 +329,7 @@ class _MyHomePageState extends State<MyHomePage> {
             color: const Color(0xFFF9F9F9),
             child: Container(
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.blue, width: 4.5),
+                border: Border.all(color: const Color.fromRGBO(54, 164, 255, 1), width: 4.5),
                 borderRadius: BorderRadius.circular(8)
               ),
               child: Column(
@@ -337,7 +339,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     textGiven,
                     style: GoogleFonts.roboto(),
                   ),
-                  SvgPicture.asset("assets/images/car.svg", height: 24, width: 24,)
+                  SvgPicture.asset("assets/images/car.svg", height: 24, width: 24, color: const Color(0xff444444))
                 ],
               ),
             ),
@@ -348,7 +350,7 @@ class _MyHomePageState extends State<MyHomePage> {
           right: 1,
           child: CircleAvatar(
               radius: 12,
-              backgroundColor: Colors.blue,
+              backgroundColor: Color.fromRGBO(54, 164, 255, 1),
               child: Icon(Icons.done, color: Color(0xFFFAFAFA), size: 15)
           ),
         ),
