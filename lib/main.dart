@@ -48,129 +48,125 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: const Color(0xFFFAFAFA),
           foregroundColor: const Color(0xFF616161),
           elevation: 0,
-          leading:  IconButton(icon: const Icon(Icons.west), onPressed: (){},),
+          leading:  IconButton(icon: const Icon(Icons.west), onPressed: () {}),
 
         ),
         body: Padding(
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: Stack(
-                        children: [
-                          SvgPicture.asset("assets/images/user.svg", height: 128, width: 128),
-                           const Positioned(
-                            bottom: 12,
-                            right: 12,
-                            child: CircleAvatar(
-                              radius: 15,
-                              backgroundColor: Colors.blue,
-                              child: Icon(Icons.edit, color: Color(0xFFFAFAFA), size: 16,)
-                            ),
-                          ),
-                        ],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Stack(
+                    children: [
+                      SvgPicture.asset("assets/images/user.svg", height: 128, width: 128),
+                       const Positioned(
+                        bottom: 12,
+                        right: 12,
+                        child: CircleAvatar(
+                          radius: 15,
+                          backgroundColor: Colors.blue,
+                          child: Icon(Icons.edit, color: Color(0xFFFAFAFA), size: 16,)
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text("Jiggs",
-                          style: GoogleFonts.roboto(
-                            fontSize: 27,
-                            fontWeight: FontWeight.w400,
-                            fontStyle: FontStyle.normal
-                          )),
-                    ),
-                    Container(
-                      height: 48,
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                  "Level",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontStyle: FontStyle.normal,
-                                      color: const Color(0xFF040404))
-                              ),
-                              Text(
-                                  "1",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontStyle: FontStyle.normal,
-                                      color: const Color(0xFF040404))
-                              )
-                            ],
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children:   [
-                              Text(
-                                  "Completed Fueling profile",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontStyle: FontStyle.normal,
-                                      color: const Color(0xFF8B8B8B))
-                              ),
-                              SizedBox(
-                                // width: MediaQuery.of(context).size.width - 120,
-                                width: 324,
-                                child: RoundedProgressBar(
-                                  height: 8,
-                                  style: RoundedProgressBarStyle(
-                                      backgroundProgress: const Color(0xFFECECEC),
-                                      borderWidth: 0,
-                                      widthShadow: 0),
-                                  borderRadius: BorderRadius.circular(8),
-                                  percent: 30,),
-                              )
-                            ],
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                  "Level",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontStyle: FontStyle.normal,
-                                      color: const Color(0xFF040404))
-                              ),
-                              Text(
-                                  "2",
-                                  style: GoogleFonts.roboto(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                      fontStyle: FontStyle.normal,
-                                      color: const Color(0xFF040404))
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: IntrinsicHeight(
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8, bottom: 8),
+                    child: Text("Jiggs",
+                        style: GoogleFonts.roboto(
+                          fontSize: 27,
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal
+                        )),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.only(top: 8, bottom: 8),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children:   [
+                      children: [
                         Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                                "Level",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w400,
+                                    fontStyle: FontStyle.normal,
+                                    color: const Color(0xFF040404))
+                            ),
+                            Text(
+                                "1",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w400,
+                                    fontStyle: FontStyle.normal,
+                                    color: const Color(0xFF040404))
+                            )
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children:   [
+                            Text(
+                                "Completed Fueling profile",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w400,
+                                    fontStyle: FontStyle.normal,
+                                    color: const Color(0xFF8B8B8B))
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width - 128,
+                              child: RoundedProgressBar(
+                                height: 8,
+                                style: RoundedProgressBarStyle(
+                                    backgroundProgress: const Color(0xFFECECEC),
+                                    borderWidth: 0,
+                                    widthShadow: 0),
+                                borderRadius: BorderRadius.circular(8),
+                                percent: 30,),
+                            )
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                                "Level",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w400,
+                                    fontStyle: FontStyle.normal,
+                                    color: const Color(0xFF040404))
+                            ),
+                            Text(
+                                "2",
+                                style: GoogleFonts.roboto(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w400,
+                                    fontStyle: FontStyle.normal,
+                                    color: const Color(0xFF040404))
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8, bottom: 8),
+                child: IntrinsicHeight(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children:   [
+                      Expanded(
+                        child: Column(
                           children:  [
                             Text(
                                 "Coins",
@@ -191,14 +187,16 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ],
                         ),
-                        const VerticalDivider(
-                          width: 30,
-                          thickness: 1,
-                          color: Color(0xFFD6D6D6),
-                          indent: 4,
-                          endIndent: 4,
-                        ),
-                        Column(
+                      ),
+                      const VerticalDivider(
+                        width: 30,
+                        thickness: 1,
+                        color: Color(0xFFD6D6D6),
+                        indent: 4,
+                        endIndent: 4,
+                      ),
+                      Expanded(
+                        child: Column(
                           children:  [
                             Text(
                                 "Time Saved",
@@ -219,54 +217,54 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.only(left: 8),
-                      child: Text(
-                        "Vehicles",
-                        style: GoogleFonts.roboto(
-                            fontSize: 24,
-                            fontWeight: FontWeight.w400,
-                            fontStyle: FontStyle.normal,
-                            color: const Color(0xFF343434))
-                      )),
-                    SizedBox(
-                      height: 100,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Row(children: _vehicleRadioButtons(vehicleList),),
-                          const SizedBox(
-                            width: 100,
-                            child: Center(
-                              child: FloatingActionButton(
-                                elevation: 2,
-                                onPressed: null,
-                                child: Icon(Icons.add),
-                              ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(left: 8, top: 8),
+                    child: Text(
+                      "Vehicles",
+                      style: GoogleFonts.roboto(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w400,
+                          fontStyle: FontStyle.normal,
+                          color: const Color(0xFF343434))
+                    )),
+                  SizedBox(
+                    height: 100,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Row(children: _vehicleRadioButtons(vehicleList),),
+                        SizedBox(
+                          width: 100,
+                          child: Center(
+                            child: FloatingActionButton(
+                              elevation: 2,
+                              onPressed: () {},
+                              child: const Icon(Icons.add),
                             ),
-                          )],
-                      ),
+                          ),
+                        )],
                     ),
-                  ],
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  width: double.infinity,
-                  child:  ElevatedButton(
-                    onPressed: null,
-                    style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.black)),
-                    child: Text("Fuel", style: const TextStyle(color: Colors.white).copyWith(fontSize: 16),)
-                  )
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+              Container(
+                  padding: const EdgeInsets.only(top: 8, bottom: 8),
+                width: double.infinity,
+                child:  ElevatedButton(
+                  onPressed: () {},
+                  style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.black)),
+                  child: Text("Fuel", style: const TextStyle(color: Colors.white).copyWith(fontSize: 16),)
+                )
+              ),
+            ],
           ),
         ),
       ),
