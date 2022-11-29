@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rounded_progress_bar/rounded_progress_bar_style.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_rounded_progress_bar/flutter_rounded_progress_bar.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -121,16 +120,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontStyle: FontStyle.normal,
                                     color: const Color(0xFF8B8B8B))
                             ),
-                            SizedBox(
+                            LinearPercentIndicator(
+                              animation: true,
+                              animationDuration: 1000,
                               width: MediaQuery.of(context).size.width - 128,
-                              child: RoundedProgressBar(
-                                height: 8,
-                                style: RoundedProgressBarStyle(
-                                    backgroundProgress: const Color(0xFFECECEC),
-                                    borderWidth: 0,
-                                    widthShadow: 0),
-                                borderRadius: BorderRadius.circular(8),
-                                percent: 30,),
+                              lineHeight: 8.0,
+                              percent: 0.3,
+                              progressColor: const Color.fromRGBO(54, 164, 255, 1),
+                              backgroundColor: const Color(0xFFECECEC),
+                              barRadius: const Radius.circular(8),
                             )
                           ],
                         ),
@@ -258,7 +256,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               Container(
-                  padding: const EdgeInsets.only(top: 8, bottom: 8),
+                padding: const EdgeInsets.only(top: 8, bottom: 8),
                 width: double.infinity,
                 child:  ElevatedButton(
                   onPressed: () {},
