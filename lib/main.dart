@@ -329,7 +329,7 @@ class _MyHomePageState extends State<MyHomePage> {
             color: const Color(0xFFF9F9F9),
             child: Container(
               decoration: BoxDecoration(
-                border: Border.all(color: const Color.fromRGBO(54, 164, 255, 1), width: 4.5),
+                border: Border.all(color: const Color.fromRGBO(54, 164, 255, 1), width: 3, strokeAlign: StrokeAlign.outside),
                 borderRadius: BorderRadius.circular(8)
               ),
               child: Column(
@@ -346,8 +346,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         const Positioned(
-          top: 1,
-          right: 1,
+          top: 0,
+          right: 0,
           child: CircleAvatar(
               radius: 12,
               backgroundColor: Color.fromRGBO(54, 164, 255, 1),
