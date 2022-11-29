@@ -37,6 +37,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<String> vehicleList = ["Petrol + CNG", "Diesel", "Electric"];
+  int currentClicked = 0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text("Jiggs",
                           style: GoogleFonts.roboto(
                             fontSize: 27,
@@ -273,29 +275,87 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List <Widget>_vehicleRadioButtons(List<String> vehicleList) {
     return List<Widget>.generate(vehicleList.length, (index) {
-      return Container(
-        margin: const EdgeInsets.fromLTRB(8, 8, 16, 8),
-        width: 100,
-        child: PhysicalShape(
-          elevation: 2,
-          clipper: ShapeBorderClipper(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-          color: const Color(0xFFF9F9F9),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text(
-                vehicleList[index],
-                style: GoogleFonts.roboto(),
-              ),
-              SvgPicture.asset("assets/images/car.svg", height: 24, width: 24,)
-            ],
-          ),
-        ),
+      return GestureDetector(
+        onTap: (){
+            setState(() {
+              currentClicked = index;
+            });
+          },
+        child: index == currentClicked ?
+        _activePhysicalShape(vehicleList[index]) : _inactivePhysicalShape(vehicleList[index]),
       );
     });
   }
+
+   _inactivePhysicalShape (String textGiven) {
+    return Container(
+      margin: const EdgeInsets.all(8),
+      width: 100,
+      child: PhysicalShape(
+        elevation: 2,
+        clipper: ShapeBorderClipper(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        color: const Color(0xFFF9F9F9),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+              textGiven,
+              style: GoogleFonts.roboto(),
+            ),
+            SvgPicture.asset("assets/images/car.svg", height: 24, width: 24,)
+          ],
+        ),
+      ),
+    );
+   }
+
+  _activePhysicalShape (String textGiven) {
+    return Stack(
+      children: [
+        Container(
+          margin: const EdgeInsets.all(8),
+          width: 100,
+          child: PhysicalShape(
+            elevation: 2,
+            clipper: ShapeBorderClipper(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            color: const Color(0xFFF9F9F9),
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.blue, width: 4.5),
+                borderRadius: BorderRadius.circular(8)
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    textGiven,
+                    style: GoogleFonts.roboto(),
+                  ),
+                  SvgPicture.asset("assets/images/car.svg", height: 24, width: 24,)
+                ],
+              ),
+            ),
+          ),
+        ),
+        const Positioned(
+          top: 1,
+          right: 1,
+          child: CircleAvatar(
+              radius: 12,
+              backgroundColor: Colors.blue,
+              child: Icon(Icons.done, color: Color(0xFFFAFAFA), size: 15)
+          ),
+        ),
+      ],
+    );
+  }
 }
+
